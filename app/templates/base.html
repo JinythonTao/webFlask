@@ -2,7 +2,7 @@
 
 {% block head %}
     {{ super() }}
-{#        <a href="../static/月光.mp3">播放背景音乐</a>#}
+    {#        <a href="../static/月光.mp3">播放背景音乐</a>#}
 {% endblock %}
 
 {% block title %}
@@ -33,6 +33,7 @@
                     <li><a href="{{ url_for('explore') }}">发现</a></li>
                     <li><a href="{{ url_for('game') }}">游戏</a></li>
                     <li><a href="{{ url_for('movie', tag='热门') }}">电影</a></li>
+                    <li><a href="{{ url_for('index') }}">轻客幽默</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     {% if current_user.is_anonymous %}
