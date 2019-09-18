@@ -1,0 +1,30 @@
+<table class="table table-hover">
+    <tr>
+        <td width="70px">
+            <a href="{{ url_for('user', username=post.author.username) }}">
+                {% if post.author.avatar %}
+                    <img class="img-rounded profile-thumbnail" src="{{ post.author.avatar }}" height="48" width="48">
+                {% else %}
+                    <img class="img-rounded profile-thumbnail" src="{{ url_for('static', filename='images/庄周.jpg') }}"
+                         height="48" width="48">
+                {% endif %}
+            </a>
+        </td>
+        <td>
+            <a href="{{ url_for('user', username=post.author.username) }}">
+                {{ post.author.username }}
+            </a>
+            发表:
+            <br>
+            {{ post.body }}
+        </td>
+        <td>
+            <form class="inline-form" method="post" action="{{ url_for('delete', post_id=post.id) }}">
+                <p align="right">
+                    <input class="btn" type="submit" name="delete" value="删除" style=background-color:#e1e9ff
+                           onclick="return confirm('确定要删除这条动态吗? 删除后无法恢复!')">
+                </p>
+            </form>
+        </td>
+    </tr>
+</table>

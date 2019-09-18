@@ -1,0 +1,22 @@
+<table class="table table-hover">
+    <tr>
+        <td width="70px">
+            <a href="{{ url_for('user', username=post.author.username) }}">
+                {% if post.author.avatar %}
+                <img class="img-rounded profile-thumbnail" src="{{ post.author.avatar }}" height="48" width="48">
+                {% else %}
+                <img class="img-rounded profile-thumbnail" src="{{ url_for('static', filename='images/庄周.jpg') }}"
+                     height="48" width="48">
+                {% endif %}
+            </a>
+        </td>
+        <td>
+            <a href="{{ url_for('user', username=post.author.username) }}">
+                {{ post.author.username }}
+            </a>
+            发布新动态:<p style="color: #0066ff; display: inline; padding-left: 10px">{{ moment(post.timestamp).fromNow() }}</p>
+            <br>
+            {{ post.body }}
+        </td>
+    </tr>
+</table>

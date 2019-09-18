@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+
+{% block app_content %}
+    <h1>系统发生未知异常！</h1>
+    <p>非常抱歉！我们已经通知系统管理员，该问题回尽快得到解决~</p>
+    <p><a href="{{ url_for('index') }}">返回首页</a></p>
+{% endblock %}

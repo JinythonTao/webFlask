@@ -1,0 +1,110 @@
+{% extends "base.html" %}
+
+{% block app_content %}
+    <style>
+        #li1 a {
+            color: #66acff;
+            font-size: 26px;
+            letter-spacing: 10px;
+            padding: 10px;
+            line-height: 20px;
+        }
+
+        #pageContainer {
+            display: inline;
+        }
+
+        #total {
+            float: left;
+            margin-left: 530px;
+            padding-top: 32px;
+        }
+
+        #total span {
+            color: #5095ff;
+            font-size: 14px;
+        }
+
+        #page {
+            padding-top: -200px;
+            padding-left: 0;
+            width: 30em;
+            margin: .5em;
+            margin-left: 600px;
+            font-size: 12px;
+
+        }
+
+        #containerF {
+            width: 45%;
+            display: inline-block;
+            float: left;
+            margin-left: 20px;
+            margin-top: 2px;
+        }
+
+        #container {
+            width: 100%;
+            float: left;
+            margin-top: 6px;
+        }
+
+        #photo {
+            width: 40%;
+            float: left;
+        }
+
+        #content {
+            width: 60%;
+            float: right;
+            line-height: 25px;
+            text-indent: -10px;
+        }
+
+    </style>
+
+    <br>
+    <div class="collapse navbar-collapse" id="nav">
+        <ul class="nav navbar-nav">
+            <li id="li1" class="active"><a href="{{ url_for('movie', tag='热门') }}">轻客电影</a></li>
+            {% for tag in tagList %}
+                <li><a href="{{ url_for("movie", tag=tag) }}">{{ tag }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div id="pageContainer">
+        <div id="total">共 <span>{{ pagination.total }}</span> 条</div>
+        <div id="page">{{ pagination.links }}</div>
+    </div>
+
+    <div class="form-group">
+        {% for movie in movies %}
+            <div id="containerF">
+                <div id="container">
+                    <div id="photo">
+                        <a href="{{ movie["电影详情"] }}">
+                            <img src="{{ movie["电影图片"] }}" height="200" width="135"/>
+                        </a>
+                    </div>
+                    <div id="content">
+                        <div>电影名称:{{ movie["电影名称"] }}</div>
+                        <div>电影评分:{{ movie["电影评分"] }}</div>
+                        <div>是否新片:{{ movie["是否新片"] }}</div>
+                        <div>电影类型: {{ movie["电影类型"] }}</div>
+                        <div>制片国家/地区: {{ movie["制片地区/国家"] }}</div>`
+                        <div>上映日期: {{ movie["上映时间"] }}</div>
+                        <div>电影简介:<a href="{{ movie["电影详情"] }}">豆瓣电影:{{ movie["电影名称"] }}</a></div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+        <div id="pageContainer">
+            <div id="total">共 <span>{{ pagination.total }}</span> 条</div>
+            <div id="page">{{ pagination.links }}</div>
+        </div>
+
+    </div>
+
+
+
+{% endblock %}

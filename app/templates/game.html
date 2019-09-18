@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block app_content %}
+    <style>
+        span {
+            background: linear-gradient(to left, #24d75d, #ed0e21);
+            -webkit-background-clip: text;
+            color: transparent;
+            font-style: italic;
+            font-size: 16px;
+            letter-spacing: 15px;
+            padding: 10px;
+            line-height: 50px;
+        }
+    </style>
+    <span>欢迎来到!王者荣耀~</span>
+
+    <table class="table table-bordered">
+        <tr>
+            {% for image in imageList[:7] %}
+                <td align="center">
+                    <img src="{{ url_for('static', filename=image) }}" height="90" width="90">
+                    <a href="{{ url_for('static', filename=image) }}" style="display: block; margin-top: 6px">
+                        {{ image.split("/")[-1][:-4] }}
+                    </a>
+                </td>
+            {% endfor %}
+
+        </tr>
+        <tr>
+            {% for image in imageList[7:14] %}
+                <td align="center">
+                    <img src="{{ url_for('static', filename=image) }}" height="90" width="90">
+                    <a href="{{ url_for('static', filename=image) }}" style="display: block; margin-top: 6px">
+                        {{ image.split("/")[-1][:-4] }}
+                    </a>
+                </td>
+            {% endfor %}
+        </tr>
+        <tr>
+            {% for image in imageList[14:21] %}
+                <td align="center">
+                    <img src="{{ url_for('static', filename=image) }}" height="90" width="90">
+                    <a href="{{ url_for('static', filename=image) }}" style="display: block; margin-top: 6px">
+                        {{ image.split("/")[-1][:-4] }}
+                    </a>
+                </td>
+            {% endfor %}
+        </tr>
+        <tr>
+            {% for image in imageList[21:28] %}
+                <td align="center">
+                    <img src="{{ url_for('static', filename=image) }}" height="90" width="90">
+                    <a href="{{ url_for('static', filename=image) }}" style="display: block; margin-top: 6px">
+                        {{ image.split("/")[-1][:-4] }}
+                    </a>
+                </td>
+            {% endfor %}
+        </tr>
+    </table>
+{% endblock %}
